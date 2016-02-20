@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag "logo.png" %>
+</head>
+<body>
+<header> 
+	<nav class="blanco azul large-padding">
+		<ul class="row center-xs no-list middle-xs">
+			<li class="col-md "> 
+				<h2><%= link_to "Blog", root_path %></h2>
+			</li>
+
+			<li class="col-md">
+				<%= link_to "articulos", articles_path %>
+			</li>
+			<% @categories.each do |category| %>
+				<li class="col-md">
+					<%= link_to category.name,category %>
+				</li>
+			<% end %>
+
+			
+			<% if user_signed_in? %>
+				<li class="col-md"> 
+					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+				</li>
+			<% else %>
+				<li class="col-md"> 
+					<%= link_to "Entrar", new_user_session_path%>
+				</li>
+				<li class="col-md"> 
+					<%= link_to "Crear Cuenta", new_user_registration_path %>
+				</li>
+			<%end%>
+		</ul>
+	</nav>
+   
+</header>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

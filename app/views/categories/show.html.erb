@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h2 style="color:<%= @category.color %>">
+  
+  <%= @category.name  %>
+</h2>
+
+<% @category.articles.each do|article| %>
+
+	<h2><%= link_to article.title, article %></h2>
+	<div>
+		<%= article.body %> - <%= link_to "Eliminar", article, method: :delete,class:"red" %>
+	</div>
+
+
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

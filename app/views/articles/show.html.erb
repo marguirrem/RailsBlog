@@ -1,0 +1,35 @@
+
+
+<h2><%= @article.title %></h2>
+
+<div>
+	
+	<%= image_tag @article.cover.url(:thumb) %> <br>
+	<%= @article.body %> <br>
+	* <%= link_to "Editar", edit_article_path(@article) %>
+
+	<h5>Escrito por: <%= @article.user.email %></h5> <br> <br>
+
+	<% @article.categories.each do |category| %>
+		<div class="field">
+			<%= link_to category.name, category %>
+		</div>
+	<% end %>
+</div>
+
+<p><%= @article.visits_count %> - vistas</p>
+<div class="comments">
+	<h3>Comentarios</h3>
+	<%= render "comments/form" %><br>
+	<br>
+	<ul id="comments-box">
+		<% @article.comments.each do |comment| %>
+			<h5><%=comment.body%>- <%= comment.user.email %></h5>
+		<% end %>
+	</ul>	
+</div>
+
+http://www.pornhub.com/view_video.php?viewkey=ph56a5bde4db35f
+
+
+http://www.pornhub.com/view_video.php?viewkey=ph56a5bf6025fb0
